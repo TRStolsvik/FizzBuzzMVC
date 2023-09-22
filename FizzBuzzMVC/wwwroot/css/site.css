@@ -59,7 +59,7 @@ main > .container {
 
 /* Change this color to suit the project, then remove comment! */
 .checklist > li i {
-    color: var(--color-green);
+    color: var(--color-orange);
 }
 
 footer .social > a {
@@ -78,6 +78,46 @@ footer .social > a {
 
 .techStack {
     padding: 0 1rem 0 1rem;
+}
+
+.btn-outline-orange {
+    border-color: var(--color-orange);
+    color: var(--color-orange);
+}
+
+.btn-outline-orange:hover{
+    border-color: none;
+    background-color: var(--color-orange);
+    color: var(--color-white);
+}
+
+.btn-orange {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+}
+
+.btn-orange:hover {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    opacity: 0.75;
+}
+
+.accordion-button.btn-orange {
+    background-color: var(--color-orange);
+    color: var(--color-white);
+}
+
+.Fizz {
+    color: var(--color-green) !important;
+}
+
+.Buzz {
+    color: var(--color-blue) !important;
+}
+
+.FizzBuzz {
+    font-weight: bold;
+    color: var(--color-indigo) !important;
 }
 
 @media screen and (max-width: 767px) {

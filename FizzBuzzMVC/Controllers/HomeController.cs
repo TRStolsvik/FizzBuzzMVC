@@ -1,4 +1,6 @@
 ﻿using DotNET6_MVC_CodingChallengeTemplate.Models;
+using FizzBuzzMVC.Logic;
+using FizzBuzzMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -18,9 +20,21 @@ namespace DotNET6_MVC_CodingChallengeTemplate.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult App()
         {
-            return View();
+            FizzBuzzModel model = new();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult App(FizzBuzzModel input)
+        {
+            input.FBOutput = FizzBuzzGenerator.GetValues(input);
+
+            return View(input.FBOutput);
         }
 
         public IActionResult Code()

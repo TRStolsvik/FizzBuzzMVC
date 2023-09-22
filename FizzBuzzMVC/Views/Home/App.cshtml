@@ -1,3 +1,147 @@
-﻿<main class="flex-shrink-0">
-    <div class="container">APP CODE GOES HERE!</div>
+﻿@model FizzBuzzMVC.Models.FizzBuzzModel
+
+<main class="flex-shrink-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 border-md-end border-black">
+                <h1 class="border-bottom border-black">
+                    FizzBuzz MVC: A Coding Project
+                </h1>
+                <p class="lead">
+                    How much Buzz could a <strong>FizzBuzz</strong> Buzz if a <strong>FizzBuzz</strong> <strong>FizzBuzz</strong> Fizz?
+                </p>
+                <p>
+                    FizzBuzz is my take on the classic FizzBuzz interview question which displays numbers from 1-100.
+                </p>
+                <p>
+                    The values can be changed, but defaults are 3 and 5.
+                </p>
+                <h2 class="mt-5 border-bottom border-black">Instructions</h2>
+                <p>
+                    Enter a fizz value and a buzz value, and watch the table
+                    populate an array from 1-100, where the numbers that are multiples
+                    of the fizz and buzz value displays the words "Fizz" and
+                    "Buzz" respectively. Numbers that are multiples of
+                    both, display "FizzBuzz" instead.
+                </p>
+                <p>Enter the desired values and try it out!</p>
+            </div>
+            <div class="col-12 col-md-6">
+                <div id="cSharpVersion" class="accordion mt-2">
+                    <div class="accordion-item bg-secondary-subtle">
+                        <h3 class="accordion-header">
+                            <button type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#cSharpVersionBody"
+                                    aria-expanded="true"
+                                    aria-controls="cSharpVersionBody"
+                                    class="accordion-button btn-orange">
+                                C£ version
+                            </button>
+                        </h3>
+                        <div id="cSharpVersionBody"
+                             class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                <div class="row row-cols-1 row-cols-md-2">
+                                    <div class="col col-md-8">
+                                        <div class="row gx-2">
+                                            <div class="col-12 col-md-6">
+                                                <label asp-for="FizzValue" class="form-label">Fizz Value:</label>
+                                                <input asp-for="FizzValue"
+                                                       type="number"
+                                                       value="@Model.FizzValue"
+                                                       class="form-control" />
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <label asp-for="BuzzValue" class="form-label">Buzz Value:</label>
+                                                <input asp-for="BuzzValue"
+                                                       type="number"
+                                                       value="@Model.BuzzValue"
+                                                       class="form-control" />
+                                            </div>
+                                            <div class="col-12 mt-2 text-end">
+                                                <button id="csBtnSubmit"
+                                                        type="submit"
+                                                        class="btn btn-orange btn-large">
+                                                    FizzBuzz!
+                                                </button>
+                                            </div>
+                                            <h3 class="mt-5 border-bottom border-black">Results</h3>
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-sm">
+                                                    <tbody id="csResults">@Model.FBOutput</tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="javascriptVersion" class="accordion mt-2">
+                    <div class="accordion-item bg-secondary-subtle">
+                        <h3 class="accordion-header">
+                            <button type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#javascriptVersionBody"
+                                    aria-expanded="true"
+                                    aria-controls="javascriptVersionBody"
+                                    class="accordion-button btn-orange">
+                                JavaScript version
+                            </button>
+                        </h3>
+                        <div id="javascriptVersionBody"
+                             class="accordion-collapse collapse">
+                            <div class="accordion-body">
+                                <div class="row row-cols-1 row-cols-md-2">
+                                    <div class="col col-md-8">
+                                        <div class="row gx-2">
+                                            <div class="col-12 col-md-6">
+                                                <label for="fizzValue" class="form-label">Fizz Value:</label>
+                                                <input id="fizzValue"
+                                                       type="number"
+                                                       value="3"
+                                                       class="form-control" />
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <label for="buzzValue" class="form-label">Buzz Value:</label>
+                                                <input id="buzzValue"
+                                                       type="number"
+                                                       value="5"
+                                                       class="form-control" />
+                                            </div>
+                                            <div class="col-12 mt-2 text-end">
+                                                <button id="btnSubmit"
+                                                        type="button"
+                                                        class="btn btn-orange btn-large">
+                                                    FizzBuzz!
+                                                </button>
+                                            </div>
+                                            <h3 class="mt-5 border-bottom border-black">Results</h3>
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-sm">
+                                                    <tbody id="results"></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
+<!-- Template Section -->
+<template id="dbTemplate">
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</template>
