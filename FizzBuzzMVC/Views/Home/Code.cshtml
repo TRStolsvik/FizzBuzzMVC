@@ -1,7 +1,7 @@
 ﻿<main class="flex-shrink-0">
     <div class="container">
         <h2 class="border-1 border-bottom border-dark">
-            The Code for APP NAME is structured in XX functions.
+            The Code for FizzBuzz MVC is structured in 3 (5) functions. The view and model is also shown at the end.
         </h2>
         <div id="accordionItemOne" class="accordion mt-2">
             <div class="accordion-item bg-secondary-subtle">
@@ -11,8 +11,8 @@
                             data-bs-target="#accordionPanelOne"
                             aria-expanded="true"
                             aria-controls="accordionPanelOne"
-                            class="accordion-button bg-dark text-light">
-                        Function Name #1
+                            class="accordion-button btn-orange text-light">
+                        GetValues()
                     </button>
                 </h3>
                 <div id="accordionPanelOne"
@@ -20,18 +20,28 @@
                     <div class="accordion-body">
                         <div class="row row-cols-1 row-cols-md-2">
                             <div class="col col-md-8">
-                                <pre data-start="1"><code class="language-javascript">
-                            // Call Hello World!
-                            function HelloWorld() {
-                                alert('Hello World!');
-                            }                                            
-                        </code></pre>
+                                <pre data-start="1"><code class="language-dotnet">
+                                    public static List&lt;string> GetValues(FizzBuzzModel model)
+                                    {
+                                        int fValue = int.Parse(model.FizzValue);
+                                        int bValue = int.Parse(model.BuzzValue);
+
+                                        List&lt;string> fbValues = TestFizzBuzz(fValue, bValue);
+
+                                        return DisplayFizzBuzz(fbValues);
+                                    }
+                                </code></pre>
                             </div>
                             <div class="col col-md-4">
-                                <h5>HelloWorld()</h5>
+                                <h5>GetValues()</h5>
                                 <p>
-                                    Hello World is a function that displays an alert with a
-                                    message of "Hello World!"
+                                    GetValues() takes in our object and parses both fizz and buzz values to integers and assigns each of them to a new int variable.
+                                </p>
+                                <p>
+                                    Next we pass in these values as parameters in the TestFizzBuzz() function and return it's resulting string to a new list of type string.
+                                </p>
+                                <p>
+                                    We pass this list as a parameter to the DisplayFizzBuzz() function, and return it's result to the post action of the App() method in the controller.
                                 </p>
                             </div>
                         </div>
@@ -47,26 +57,323 @@
                             data-bs-target="#accordionPanelTwo"
                             aria-expanded="true"
                             aria-controls="accordionPanelTwo"
-                            class="accordion-button bg-dark text-light">
-                        Function Name #2
+                            class="accordion-button btn-orange text-light">
+                        TestFizzBuzz()
                     </button>
                 </h3>
                 <div id="accordionPanelTwo" class="accordion-collapse collapse">
                     <div class="accordion-body">
                         <div class="row row-cols-1 row-cols-md-2">
                             <div class="col col-md-8">
-                                <pre data-start="5"><code class="language-javascript">
-                            // Call Hello World!
-                            function HelloWorld() {
-                                alert('Hello World!');
-                            }                                            
-                        </code></pre>
+                                <pre data-start="5"><code class="language-dotnet">
+                                    public static List&lt;string> TestFizzBuzz(int fValue, int bValue)
+                                    {
+                                        List&lt;string> output = new();
+
+                                        for (int i = 1; i <= 100; i++)
+                                        {
+                                            if (i % fValue == 0 && i % bValue == 0)
+                                            {
+                                                output.Add("FizzBuzz");
+                                            }
+                                            else if (i % bValue == 0)
+                                            {
+                                                output.Add("Buzz");
+                                            }
+                                            else if (i % fValue == 0)
+                                            {
+                                                output.Add("Fizz");
+                                            }
+                                            else
+                                            {
+                                                output.Add(i.ToString());
+                                            }
+                                        }
+
+                                        return output;
+                                    }
+                                </code></pre>
                             </div>
                             <div class="col col-md-4">
-                                <h5>HelloWorld()</h5>
+                                <h5>TestFizzBuzz()</h5>
                                 <p>
-                                    Hello World is a function that displays an alert with a
-                                    message of "Hello World!"
+                                    TestFizzBuzz() takes in the newly parsed integers for the fizz and buzz values respectively and returns a list of type string.
+                                </p>
+                                <p>
+                                    We start by instantiating a new list to hold our output.
+                                </p>
+                                <p>
+                                    Next we do a for-loop, going from 1 through 100 and iterating by 1 each time.
+                                </p>
+                                <p>
+                                    Inside the loop we do an if-else check to see in series if the value of the iterator (i) modulus fizz and/or buzz value is equal to zero. If it matches both, we add "FizzBuzz" to our list, if it matches only the fizz or the buzz value, we add "Fizz" or "Buzz" respectively, to the list. Last, if it doesn't match either, we simply add the number as a string.
+                                </p>
+                                <p>
+                                    Finally, we return the populated list.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="accordionItemThree" class="accordion mt-2">
+            <div class="accordion-item bg-secondary-subtle">
+                <h3 class="accordion-header">
+                    <button type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#accordionPanelThree"
+                            aria-expanded="true"
+                            aria-controls="accordionPanelThree"
+                            class="accordion-button btn-orange text-light">
+                        DisplayFizzBuzz()
+                    </button>
+                </h3>
+                <div id="accordionPanelThree"
+                     class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <div class="row row-cols-1 row-cols-md-2">
+                            <div class="col col-md-8">
+                                <pre data-start="1"><code class="language-dotnet">
+                                    public static List&lt;string> DisplayFizzBuzz(List&lt;string> input)
+                                    {
+                                        return input;
+                                    }
+                                </code></pre>
+                            </div>
+                            <div class="col col-md-4">
+                                <h5>DisplayFizzBuzz()</h5>
+                                <p>
+                                    Strictly speaking DisplayFizzBuzz() isn't needed for this project, and has primarily been included as general practice in working with multiple functions/methods.
+                                </p>
+                                <p>
+                                    The actual work that the display function would normally do, is in this case done directly in the view, since we can write C# directly inside the page using Razor syntax in .cshtml files.
+                                </p>
+                                <p>
+                                    The work this function does is simply to return the list, meaning we could (and in production applications, <strong>probably should</strong>) skip it.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="accordionItemFour" class="accordion mt-2">
+            <div class="accordion-item bg-secondary-subtle">
+                <h3 class="accordion-header">
+                    <button type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#accordionPanelFour"
+                            aria-expanded="true"
+                            aria-controls="accordionPanelFour"
+                            class="accordion-button btn-orange text-light">
+                        App() // HttpGet
+                    </button>
+                </h3>
+                <div id="accordionPanelFour"
+                     class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <div class="row row-cols-1 row-cols-md-2">
+                            <div class="col col-md-8">
+                                <pre data-start="1"><code class="language-dotnet">
+                                    [HttpGet]
+                                    public IActionResult App()
+                                    {
+                                        FizzBuzzModel model = new();
+
+                                        model.FizzValue = "3";
+                                        model.BuzzValue = "5";
+
+                                        return View(model);
+                                    }
+                                </code></pre>
+                            </div>
+                            <div class="col col-md-4">
+                                <h5>App() // GET</h5>
+                                <p>
+                                    In the controller's "get" action of the App() method we instantiate a new object of our FizzBuzzModel.
+                                </p>
+                                <p>
+                                    We also assign default values to the two values, so that there is something to work with even if the user doesn't input anything themselves. Note that the values are strings, and this is to keep it concurrent with the fact that if the user chooses to input new values, these will return as strings, so either way, we have some work to do with them.
+                                </p>
+                                <p>
+                                    Finally we return the object to the view.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="accordionItemFive" class="accordion mt-2">
+            <div class="accordion-item bg-secondary-subtle">
+                <h3 class="accordion-header">
+                    <button type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#accordionPanelFive"
+                            aria-expanded="true"
+                            aria-controls="accordionPanelFive"
+                            class="accordion-button btn-orange text-light">
+                        App() // HttpPost
+                    </button>
+                </h3>
+                <div id="accordionPanelFive"
+                     class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <div class="row row-cols-1 row-cols-md-2">
+                            <div class="col col-md-8">
+                                <pre data-start="1"><code class="language-dotnet">
+                                    [HttpPost]
+                                    [ValidateAntiForgeryToken]
+                                    public IActionResult App(FizzBuzzModel input)
+                                    {
+                                        input.FBOutput = FizzBuzzGenerator.GetValues(input);
+
+                                        return View(input);
+                                    }
+                                </code></pre>
+                            </div>
+                            <div class="col col-md-4">
+                                <h5>App() // POST</h5>
+                                <p>
+                                    The controllers "post" action of the App() method takes in our FizzBuzzModel object that we instantiated in the "get" method.
+                                    We assign the resulting list from GetValues() to our objects list called FBOutput.
+                                </p>
+                                <p>
+                                    Finally we return the list to the view.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="accordionItemSix" class="accordion mt-2">
+            <div class="accordion-item bg-secondary-subtle">
+                <h3 class="accordion-header">
+                    <button type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#accordionPanelSix"
+                            aria-expanded="true"
+                            aria-controls="accordionPanelSix"
+                            class="accordion-button btn-orange text-light">
+                        App view
+                    </button>
+                </h3>
+                <div id="accordionPanelSix"
+                     class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <div class="row row-cols-1 row-cols-md-2">
+                            <div class="col col-md-8">
+                                <pre data-start="1"><code class="language-dotnet">
+                                    &lt;form asp-controller="Home" asp-action="App" method="post" class="row row-cols-1 row-cols-md-2">
+                                        &lt;div class="col col-md-8">
+                                            &lt;div class="row gx-2">
+                                                &lt;div class="col-12 col-md-6">
+                                                    &lt;label asp-for="FizzValue" class="form-label">Fizz Value:&lt;/label>
+                                                    &lt;input asp-for="FizzValue"
+                                                    type="number"
+                                                    value="@@Model.FizzValue"
+                                                    class="form-control" />
+                                                &lt;/div>
+                                                &lt;div class="col-12 col-md-6">
+                                                    &lt;label asp-for="BuzzValue" class="form-label">Buzz Value:&lt;/label>
+                                                    &lt;input asp-for="BuzzValue"
+                                                    type="number"
+                                                    value="@@Model.BuzzValue"
+                                                    class="form-control" />
+                                                &lt;/div>
+                                                &lt;div class="col-12 mt-2 text-end">
+                                                    &lt;button id="csBtnSubmit"
+                                                    type="submit"
+                                                    class="btn btn-orange btn-large">
+                                                    FizzBuzz!
+                                                    &lt;/button>
+                                                &lt;/div>
+                                                &lt;h3 class="mt-5 border-bottom border-black">Results&lt;/h3>
+                                                &lt;div class="table-responsive">
+                                                    &lt;table class="table table-striped table-sm">
+                                                        &lt;tbody id="csResults">
+                                                            @@if (Model.FBOutput.Count > 0)
+                                                            {
+                                                                for (int i = 0; i < Model.FBOutput.Count; i += 5)
+                                                                {
+                                                                    &lt;tr>
+                                                                        &lt;td class="@@Model.FBOutput[i]">@@Model.FBOutput[i]&lt;/td>
+                                                                        &lt;td class="@@Model.FBOutput[i + 1]">@@Model.FBOutput[i + 1]&lt;/td>
+                                                                        &lt;td class="@@Model.FBOutput[i + 2]">@@Model.FBOutput[i + 2]&lt;/td>
+                                                                        &lt;td class="@@Model.FBOutput[i + 3]">@@Model.FBOutput[i + 3]&lt;/td>
+                                                                        &lt;td class="@@Model.FBOutput[i + 4]">@@Model.FBOutput[i + 4]&lt;/td>
+                                                                    &lt;/tr>
+                                                                }
+                                                            }
+                                                        &lt;/tbody>
+                                                    &lt;/table>
+                                                &lt;/div>
+                                            &lt;/div>
+                                        &lt;/div>
+                                    &lt;/form>
+                                </code></pre>
+                            </div>
+                            <div class="col col-md-4">
+                                <h5>App view</h5>
+                                <p>
+                                    The form for this application actually does a little bit of work directly inside the page.
+                                </p>
+                                <p>
+                                    We take in the FizzValue and BuzzValues, which we can change if we want, and then once the program has done it's work behind the scenes so to speak, we can display it on the page.
+                                </p>
+                                <p>
+                                    Note at the top of the tbody, where we check to see if the output list has any entries by checking the count. We don't want to run the program if the list doesn't contain any data.
+                                </p>
+                                <p>
+                                    Inside the if-statement, we do a for-loop through the list we have created, starting at 0 and going for the length (count) of our output list. We increment by 5 each time, for the reason below.
+                                </p>
+                                <p>
+                                    For each iteration, we create a new table row with 5 cells (td) inside. Inside each cell we assign to it a class corresponding to it's value, so that we can do some styling to the different classes. We also assign the string itself to the table cell.
+                                </p>
+                                <p>
+                                    This is how some of the cells will show the number, while others will show a string of text, such as FizzBuzz.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="accordionItemSeven" class="accordion mt-2">
+            <div class="accordion-item bg-secondary-subtle">
+                <h3 class="accordion-header">
+                    <button type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#accordionPanelSeven"
+                            aria-expanded="true"
+                            aria-controls="accordionPanelSeven"
+                            class="accordion-button btn-orange text-light">
+                        FizzBuzzModel
+                    </button>
+                </h3>
+                <div id="accordionPanelSeven"
+                     class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <div class="row row-cols-1 row-cols-md-2">
+                            <div class="col col-md-8">
+                                <pre data-start="1"><code class="language-dotnet">
+                                    public class FizzBuzzModel
+                                    {
+                                        public string FizzValue { get; set; }
+                                        public string BuzzValue { get; set; }
+                                        public List&lt;string> FBOutput { get; set; } = new();
+                                    }
+                                </code></pre>
+                            </div>
+                            <div class="col col-md-4">
+                                <h5>FizzBuzzModel</h5>
+                                <p>
+                                    The FizzBuzzModel defines two strings and a list of type string that we will use for this application.
+                                </p>
+                                <p>
+                                    When we instantiate an object from this model, we also instantiate a new list of string called FBOutput.
                                 </p>
                             </div>
                         </div>
