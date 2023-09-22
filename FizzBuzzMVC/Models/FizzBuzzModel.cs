@@ -2,8 +2,8 @@
 {
     public class FizzBuzzModel
     {
-        public int FizzValue { get; set; } = 3;
-        public int BuzzValue { get; set; } = 5;
+        public string FizzValue { get; set; }
+        public string BuzzValue { get; set; }
         public List<string> FBOutput { get; set; } = new();
     }
 }

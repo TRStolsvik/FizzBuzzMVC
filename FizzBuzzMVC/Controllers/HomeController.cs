@@ -25,6 +25,9 @@ namespace DotNET6_MVC_CodingChallengeTemplate.Controllers
         {
             FizzBuzzModel model = new();
 
+            model.FizzValue = "3";
+            model.BuzzValue = "5";
+
             return View(model);
         }
 
@@ -34,7 +37,7 @@ namespace DotNET6_MVC_CodingChallengeTemplate.Controllers
         {
             input.FBOutput = FizzBuzzGenerator.GetValues(input);
 
-            return View(input.FBOutput);
+            return View(input);
         }
 
         public IActionResult Code()

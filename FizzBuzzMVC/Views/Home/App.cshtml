@@ -42,7 +42,7 @@
                         <div id="cSharpVersionBody"
                              class="accordion-collapse collapse show">
                             <div class="accordion-body">
-                                <div class="row row-cols-1 row-cols-md-2">
+                                <form asp-controller="Home" asp-action="App" method="post" class="row row-cols-1 row-cols-md-2">
                                     <div class="col col-md-8">
                                         <div class="row gx-2">
                                             <div class="col-12 col-md-6">
@@ -69,12 +69,20 @@
                                             <h3 class="mt-5 border-bottom border-black">Results</h3>
                                             <div class="table-responsive">
                                                 <table class="table table-striped table-sm">
-                                                    <tbody id="csResults">@Model.FBOutput</tbody>
+                                                    <tbody id="csResults">
+                                                        @if (Model.FBOutput.Count > 0)
+                                                        {
+                                                            for (int i = 0; i < Model.FBOutput.Count; i+=5)
+                                                            {
+                                                                <tr><td class="@Model.FBOutput[i]">@Model.FBOutput[i]</td><td class="@Model.FBOutput[i+1]">@Model.FBOutput[i + 1]</td><td class="@Model.FBOutput[i+2]">@Model.FBOutput[i + 2]</td><td class="@Model.FBOutput[i+3]">@Model.FBOutput[i + 3]</td><td class="@Model.FBOutput[i+4]">@Model.FBOutput[i+4]</td></tr>
+                                                            }
+                                                        }
+                                                    </tbody>
                                                 </table>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
